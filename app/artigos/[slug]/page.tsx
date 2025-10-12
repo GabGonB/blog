@@ -1,53 +1,49 @@
-import { getArticleBySlug, getArticles, Article } from '../../../lib/getArticles';
+import { getArticles } from '@/lib/getArticles';
+import { Metadata } from 'next';
 
-type Props = {
-    params: { slug: string };
-};
+interface Props {
+  params: {
+    slug: string;
+  };
+}
 
-export const dynamic = 'force-dynamic';
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const articles = await getArticles();
+  const article = articles.find((a) => a.slug === params.slug);
+
+  if (!article) {
+    return {
+      title: 'Artigo não encontrado',
+      description: 'O artigo solicitado não existe.',
+    };
+  }
+
+  return {
+    title: article.titulo,
+    description: article.descricao || article.conteudo.substring(0, 150),
+  };
+}
+
+export default async function ArtigoPage({ params }: Props) {
+  const articles = await getArticles();
+  const article = articles.find((a) => a.slug === params.slug);
+
+  if (!article) {
+    return <h1>Artigo não encontrado</h1>;
+  }
+
+  return (
+    <article className="container mx-auto py-10 prose">
+      <h1>{article.titulo}</h1>
+      <p className="text-gray-500">
+        {article.autor} — {article.data}
+      </p>
+      <div dangerouslySetInnerHTML={{ __html: article.conteudo }} />
+    </article>
+  );
+}
 
 export async function generateStaticParams() {
-    const articles = await getArticles();
-    return articles.map(a => ({ slug: a.slug }));
+  const articles = await getArticles();
+  return articles.map((a) => ({ slug: a.slug }));
 }
-
-export async function generateMetadata({ params }: Props) {
-    const article = await getArticleBySlug(params.slug);
-    if (!article) {
-        return {
-            title: 'Artigo não encontrado',
-            description: 'O artigo solicitado não foi encontrado.'
-        };
-    }
-
-    return {
-        title: `${article.title} — Meu Blog`,
-        description: article.description ?? article.content.slice(0, 160)
-    };
-}
-
-export default async function ArticlePage({ params }: Props) {
-    const article = await getArticleBySlug(params.slug);
-
-    if (!article) {
-        return (
-            <div>
-                <h2>Artigo não encontrado</h2>
-                <p>Não encontramos o artigo solicitado.</p>
-            </div>
-        );
-    }
-
-    return (
-        <article>
-            <h1>{article.title}</h1>
-            <p>
-                <em>
-                    Por {article.author} — {new Date(article.publishedAt).toLocaleDateString('pt-BR')}
-                </em>
-            </p>
-            <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        </article>
-    );
-}
-

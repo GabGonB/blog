@@ -1,14 +1,14 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-export type Article = {
-    slug: string;
-    title: string;
-    author: string;
-    publishedAt: string;
-    description?: string;
-    content: string;
-};
+export interface Article {
+  slug: string;
+  titulo: string;
+  descricao?: string;
+  autor: string;
+  data: string;
+  conteudo: string;
+}
 
 const dataFile = path.join(process.cwd(), 'data', 'artigos.json');
 
