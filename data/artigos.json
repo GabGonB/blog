@@ -1,0 +1,19 @@
+[
+    {
+        "slug": "bem-vindo-ao-blog",
+        "title": "Bem-vindo ao Blog",
+        "author": "Gabriel Gonçalves",
+        "publishedAt": "2025-09-30",
+        "description": "Apresentação do blog e objetivos.",
+        "content": "<p>Este é o primeiro post do blog. Aqui explicamos o propósito do projeto.</p>"
+
+    },
+    {
+        "slug": "rotas-dinamicas-nextjs",
+        "title": "Rotas Dinâmicas com Next.js",
+        "author": "Equipe Dev",
+        "publishedAt": "2025-10-01",
+        "description": "Como configurar rotas dinâmicas no App Router do Next.js.",
+        "content": "<p>Explicamos como criar páginas dinâmicas com generateStaticParams e generateMetadata.</p>"
+    }
+]
