@@ -1,16 +1,10 @@
 import { getArticles } from '@/lib/getArticles';
 import type { Metadata } from 'next';
 
-
-export interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
+type Params = { slug: string };
 
 export async function generateMetadata(
-  { params }: PageProps
+  { params }: { params: Params }
 ): Promise<Metadata> {
   const articles = await getArticles();
   const article = articles.find((a) => a.slug === params.slug);
@@ -29,7 +23,11 @@ export async function generateMetadata(
 }
 
 
-export default async function ArtigoPage({ params }: PageProps) {
+export default async function ArtigoPage({
+  params,
+}: {
+  params: Params;
+}) {
   const articles = await getArticles();
   const article = articles.find((a) => a.slug === params.slug);
 
@@ -49,11 +47,9 @@ export default async function ArtigoPage({ params }: PageProps) {
 }
 
 
-export async function generateStaticParams(): Promise<
-  Array<{ params: { slug: string } }>
-> {
+export async function generateStaticParams() {
   const articles = await getArticles();
   return articles.map((a) => ({
-    params: { slug: a.slug },
+    slug: a.slug,
   }));
 }
