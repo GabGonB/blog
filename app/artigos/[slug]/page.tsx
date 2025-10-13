@@ -1,6 +1,8 @@
 import { getArticles } from '@/lib/getArticles';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 type Params = { slug: string };
 
 export async function generateMetadata(
@@ -41,7 +43,7 @@ export default async function ArtigoPage({
       <p className="text-gray-500">
         {article.autor} — {article.data}
       </p>
-      <div dangerouslySetInnerHTML={{ __html: article.conteudo }} />
+      <div dangerouslySetInnerHTML={{ __html: article.conteudo || '' }} />
     </article>
   );
 }
