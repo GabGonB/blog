@@ -1,15 +1,33 @@
 {
   "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-8fbb09002898e9b3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-01c481785f268126.js",
+      "static/chunks/main-app-60b53674f5a8114a.js",
+      "static/chunks/app/_not-found/page-e40c316053cebdfb.js"
+    ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-8fbb09002898e9b3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-01c481785f268126.js",
+      "static/chunks/main-app-60b53674f5a8114a.js",
+      "static/css/36b85ea3282de398.css",
+      "static/chunks/app/layout-8d6fff91306179a5.js"
     ],
     "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/webpack-8fbb09002898e9b3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-01c481785f268126.js",
+      "static/chunks/main-app-60b53674f5a8114a.js",
+      "static/chunks/app/page-cb7875644dc5cbaa.js"
+    ],
+    "/artigos/[slug]/page": [
+      "static/chunks/webpack-8fbb09002898e9b3.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-01c481785f268126.js",
+      "static/chunks/main-app-60b53674f5a8114a.js",
+      "static/chunks/app/artigos/[slug]/page-cb3875ece03d0432.js"
     ]
   }
 }
