@@ -1,19 +1,18 @@
 [
-    {
-        "slug": "bem-vindo-ao-blog",
-        "title": "Bem-vindo ao Blog",
-        "author": "Gabriel Gonçalves",
-        "publishedAt": "2025-09-30",
-        "description": "Apresentação do blog e objetivos.",
-        "content": "<p>Este é o primeiro post do blog. Aqui explicamos o propósito do projeto.</p>"
-
-    },
-    {
-        "slug": "rotas-dinamicas-nextjs",
-        "title": "Rotas Dinâmicas com Next.js",
-        "author": "Equipe Dev",
-        "publishedAt": "2025-10-01",
-        "description": "Como configurar rotas dinâmicas no App Router do Next.js.",
-        "content": "<p>Explicamos como criar páginas dinâmicas com generateStaticParams e generateMetadata.</p>"
-    }
+  {
+    "slug": "bem-vindo-ao-blog",
+    "titulo": "Bem-vindo ao Blog",
+    "autor": "Gabriel Gonçalves",
+    "data": "2025-09-30",
+    "descricao": "Apresentação do blog e objetivos.",
+    "conteudo": "<p>Este é o primeiro post do blog. Aqui explicamos o propósito do projeto.</p>"
+  },
+  {
+    "slug": "rotas-dinamicas-nextjs",
+    "titulo": "Rotas Dinâmicas com Next.js",
+    "autor": "Equipe Dev",
+    "data": "2025-10-01",
+    "descricao": "Como configurar rotas dinâmicas no App Router do Next.js.",
+    "conteudo": "<p>Explicamos como criar páginas dinâmicas com generateMetadata e Server Components.</p>"
+  }
 ]

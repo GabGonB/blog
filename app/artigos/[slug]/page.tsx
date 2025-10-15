@@ -1,9 +1,10 @@
+export const dynamic = 'force-dynamic';
+
 import { getArticles } from '@/lib/getArticles';
 import type { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
-
 type Params = { slug: string };
+
 
 export async function generateMetadata(
   { params }: { params: Params }
@@ -25,11 +26,7 @@ export async function generateMetadata(
 }
 
 
-export default async function ArtigoPage({
-  params,
-}: {
-  params: Params;
-}) {
+export default async function ArtigoPage({ params }: { params: Params }) {
   const articles = await getArticles();
   const article = articles.find((a) => a.slug === params.slug);
 
@@ -46,12 +43,4 @@ export default async function ArtigoPage({
       <div dangerouslySetInnerHTML={{ __html: article.conteudo || '' }} />
     </article>
   );
-}
-
-
-export async function generateStaticParams() {
-  const articles = await getArticles();
-  return articles.map((a) => ({
-    slug: a.slug,
-  }));
 }
